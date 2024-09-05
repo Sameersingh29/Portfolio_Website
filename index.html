@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sameer</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+        :root {
+            --primary-color: #212722;
+            --secondary-color: #ea8f10;
+            --hover-color: white;
+        }
+
+        .social-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            padding: 10px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .social-sidebar a {
+            display: block;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+
+        .social-sidebar a:last-child {
+            margin-bottom: 0;
+        }
+
+        .social-sidebar svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--secondary-color);
+            transition: fill 0.3s ease;
+        }
+
+        .social-sidebar a:hover svg {
+            fill: var(--hover-color);
+        }
+
+        @media (max-width: 768px) {
+            .social-sidebar {
+                left: 0;
+                right: 0;
+                top: auto;
+                bottom: 0;
+                transform: none;
+                display: flex;
+                justify-content: space-around;
+                border-radius: 0;
+                padding: 10px 0;
+            }
+
+            .social-sidebar a {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body id="top">
+    <!-- Social Side bar -->
+    <div class="social-sidebar">
+        <a href="mailto:your-email@example.com" id="email-link">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/your-profile" id="linkedin-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+        <a href="https://github.com/your-username" id="github-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/your-username" id="instagram-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+    </div>
+    
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- page wrap
+    ================================================== -->
+    <div id="page" class="s-pagewrap ss-home">
+
+
+        <!-- # site header 
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="row s-header__inner width-sixteen-col">
+
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html">
+                            <img src="images/logo.svg" alt="Homepage">
+                        </a>
+                    </div>
+
+                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+                </div> <!-- end s-header__block -->
+
+                <nav class="s-header__nav">
+    
+                    <ul class="s-header__menu-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul> <!-- s-header__menu-links -->
+
+                    <div class="s-header__contact">
+                        <a href="path/to/resume.pdf" class="btn btn--primary s-header__contact-btn" download>
+                            Download Resume
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1); vertical-align: middle; margin-left: 8px;">
+                                <path d="M12 1v10.586l3.707-3.707 1.414 1.414-5.707 5.707-5.707-5.707 1.414-1.414 3.707 3.707V1h2zm-5 16h10v2H7v-2zM5 19h14c1.104 0 2-.896 2-2V5c0-1.104-.896-2-2-2H5c-1.104 0-2 .896-2 2v12c0 1.104.896 2 2 2zm0-14h14v12H5V5z"></path>
+                            </svg>
+                        </a>                        
+                    </div> <!-- s-header__contact -->
+                    
+                    
+    
+                </nav> <!-- end s-header__nav -->
+
+            </div> <!-- end s-header__inner -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- # site main content
+        ================================================== -->
+        <section id="content" class="s-content">
+
+            <!-- intro
+            ----------------------------------------------- -->
+            <section id="intro" class="s-intro">
+
+                <div class="row s-intro__content width-sixteen-col">
+
+                    <div class="column lg-12 s-intro__content-inner grid-block">
+                        
+                        <div class="s-intro__content-text">
+                            <div class="s-intro__content-pretitle text-pretitle">Hello, I'm Sameer</div>
+                            <h1 class="s-intro__content-title">
+                            Coding Trailblazer:<br> Crafting Impactful<br> Web Solutions.
+                            </h1>
+                        </div> <!-- s-intro__content-text -->
+
+                        <div class="s-intro__content-media"> 
+                            <div class="s-intro__content-media-inner">                               
+                                <img src="images/intro-bg.jpg" srcset="images/intro-bg.jpg 1x, images/intro-bg@2x.jpg 2x" alt="">
+                                <div class="lines">                               
+                                    <span></span>                                  
+                                </div>
+                            </div>
+                        </div> <!-- s-intro__content-media -->                      
+
+                        <div class="s-intro__scroll-down">
+                            <a href="#about" class="smoothscroll">
+                                <div class="scroll-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#97b34a" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">&lt;!--!  Atomicons Free 1.00 by @atisalab License - https://atomicons.com/license/ (Icons: CC BY 4.0) Copyright 2021 Atomicons --&gt;<polyline points="7 13 12 18 17 13"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
+                                </div>
+                                <span>Scroll for more</span>
+                            </a>
+                        </div> <!-- s-intro__scroll-down -->
+                        
+                    </div> <!-- s-intro__content-inner -->
+
+                </div> <!-- s-intro__content -->
+
+            </section> <!-- end s-intro -->
+
+            <!-- about
+            ----------------------------------------------- -->
+            <section id="about" class="s-about target-section">
+
+                <div class="row s-about__content width-sixteen-col">
+                    <div class="column grid-block grid-section-split">
+
+                        <img src="images/geometric_shape.svg" alt="" class="s-about__content-imgbg">
+
+                        <div class="section-header grid-section-split__header">
+                            <div class="text-pretitle">About</div>                           
+                            <h2 class="text-display-title">
+                            Crafting Digital Masterpieces: The Journey of a Passionate Web Developer
+                            </h2>                           
+                        </div> <!-- end section-header -->
+
+                        <div class="s-about__content-main grid-section-split__primary">
+                            <p class="attention-getter">
+                                I'm Sameer Singh, a web dev geek who can't get enough of coding and creating 
+                                cool digital stuff. Ever since I discovered my love for programming, I've been 
+                                on a mission to build apps that make life easier and more fun. With skills in 
+                                languages like C, Java, Python, HTML, CSS, JavaScript, Angular, and Django, 
+                                I'm a bit of a jack-of-all-trades when it comes to web development. Whether 
+                                it's crafting slick user interfaces or building rock-solid back-end systems, 
+                                I'm always up for the challenge of making intuitive and seamless web experiences.
+                            </p>
+
+                            <p class="attention-getter">
+                                My internships at EggBucket and a rad Center of Excellence for Human-Computer 
+                                Interaction have given me some solid hands-on experience in web dev, teamwork,
+                                 and UX design. I've tackled projects like "Just Lock It" (a locker service 
+                                 with cool user auth features) and "Patient Record Manager" (a healthcare app 
+                                 for doctors and patients), which really put my problem-solving skills to the 
+                                 test.But coding isn't the only thing I'm passionate about. I've completed 
+                                 online courses from places like FreeCodeCamp, Coursera, HubSpot, and Google, 
+                                 earning certifications in areas like responsive design, AI, machine learning, 
+                                 content marketing, and digital marketing. Learning new stuff is my jam!
+                            </p>
+
+                            <p class="attention-getter">
+                                When I'm not buried in code, you'll find me geeking out in tech clubs or 
+                                coordinating events for literature lovers (yeah, I'm a bit of a bookworm too). 
+                                I also love hitting the badminton court and giving back through volunteering 
+                                gigs like blood donation drives. 
+                                So, if you're looking for a web dev who's always eager to learn, 
+                                create cool stuff, and have a blast doing it, I'm your guy! 
+                                Let's build something awesome together.
+                            </p>
+                        </div> <!-- end s-about__content-main -->
+
+                        <div class="s-about__content-btn grid-section-split__bottom">
+                            <a href="about.html" class="btn btn--stroke u-fullwidth">More About Me</a>
+                            
+                            <!-- Social media -->
+                            <!-- <ul class="s-about__social social-list">
+                                <li>
+                                    <a href="#0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z"></path></svg>
+                                        <span class="u-screen-reader-text">Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
+                                        <span class="u-screen-reader-text">Twitter</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
+                                        <span class="u-screen-reader-text">Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20.66 6.98a9.932 9.932 0 0 0-3.641-3.64C15.486 2.447 13.813 2 12 2s-3.486.447-5.02 1.34c-1.533.893-2.747 2.107-3.64 3.64S2 10.187 2 12s.446 3.487 1.34 5.02a9.924 9.924 0 0 0 3.641 3.64C8.514 21.553 10.187 22 12 22s3.486-.447 5.02-1.34a9.932 9.932 0 0 0 3.641-3.64C21.554 15.487 22 13.813 22 12s-.446-3.487-1.34-5.02zM12 3.66c2 0 3.772.64 5.32 1.919-.92 1.174-2.286 2.14-4.1 2.9-1.002-1.813-2.088-3.327-3.261-4.54A7.715 7.715 0 0 1 12 3.66zM5.51 6.8a8.116 8.116 0 0 1 2.711-2.22c1.212 1.201 2.325 2.7 3.34 4.5-2 .6-4.114.9-6.341.9-.573 0-1.006-.013-1.3-.04A8.549 8.549 0 0 1 5.51 6.8zM3.66 12c0-.054.003-.12.01-.2.007-.08.01-.146.01-.2.254.014.641.02 1.161.02 2.666 0 5.146-.367 7.439-1.1.187.373.381.793.58 1.26-1.32.293-2.674 1.006-4.061 2.14S6.4 16.247 5.76 17.5c-1.4-1.587-2.1-3.42-2.1-5.5zM12 20.34c-1.894 0-3.594-.587-5.101-1.759.601-1.187 1.524-2.322 2.771-3.401 1.246-1.08 2.483-1.753 3.71-2.02a29.441 29.441 0 0 1 1.56 6.62 8.166 8.166 0 0 1-2.94.56zm7.08-3.96a8.351 8.351 0 0 1-2.58 2.621c-.24-2.08-.7-4.107-1.379-6.081.932-.066 1.765-.1 2.5-.1.799 0 1.686.034 2.659.1a8.098 8.098 0 0 1-1.2 3.46zm-1.24-5c-1.16 0-2.233.047-3.22.14a27.053 27.053 0 0 0-.68-1.62c2.066-.906 3.532-2.006 4.399-3.3 1.2 1.414 1.854 3.027 1.96 4.84-.812-.04-1.632-.06-2.459-.06z"></path></svg>
+                                        <span class="u-screen-reader-text">Dribbble</span>
+                                    </a>
+                                </li>
+                            </ul> end s-footer__social -->
+                        </div> <!-- end s-about__content-btn -->
+                    
+                    </div> <!-- content-inner -->
+                </div>
+                
+            </section> <!-- end s-about -->
+
+            <!-- expertise
+            ----------------------------------------------- -->
+            <section id="expertise" class="s-expertise">
+
+                <div class="row s-expertise__content width-sixteen-col">
+                    <div class="column xl-12 grid-block grid-section-split">
+
+                        <div class="section-header grid-section-split__header">
+                            <div class="text-pretitle">Expertise</div>                           
+                            <h2 class="text-display-title">
+                            My key areas of expertise.
+                            </h2>     
+                            
+                            <p class="lead">
+                                I'm a total pro at building slick websites and web apps - front-end wizardry 
+                                with HTML, CSS, JavaScript, and Angular is my thing. But I'm also a back-end 
+                                beast, taming Python and Django to create robust server-side solutions. 
+                                Basically, I can handle the full stack, from pixel-perfect designs to seamless 
+                                user experiences.
+                            </p>
+                        </div> <!-- end section-header -->
+
+                        <div class="s-expertise__content-main grid-section-split__primary">
+
+                            <div class="grid-list-items list-items show-ctr">
+                                <div class="grid-list-items__item list-items__item">
+                                    <div class="grid-list-items__title list-items__item-header">
+                                        <h3 class="list-items__item-title">Front-End Development</h3>
+                                    </div>
+                                    <div class="grid-list-items__text list-items__item-text">
+                                        <p>
+                                            I am proficient in HTML, CSS, and JavaScript, with experience working with 
+                                            front-end frameworks like Angular and Flutter. I am skilled in creating responsive and 
+                                            visually appealing user interfaces, and have expertise in implementing 
+                                            front-end libraries such as Bootstrap.
+                                        </p>
+                                    </div>
+                                </div> <!-- list-item -->
+                                <div class="grid-list-items__item list-items__item">
+                                    <div class="grid-list-items__title list-items__item-header">
+                                        <h3 class="list-items__item-title">Back-End Development</h3>
+                                    </div>
+                                    <div class="grid-list-items__text list-items__item-text">
+                                        <p>
+                                            I have experience in Python and the Django web framework, and am capable 
+                                            of building robust back-end systems and APIs. I am knowledgeable in 
+                                            database management with MySQL.
+                                        </p>
+                                    </div>
+                                </div> <!-- list-expertise__item -->
+                                <div class="grid-list-items__item list-items__item">
+                                    <div class="grid-list-items__title list-items__item-header">
+                                        <h3 class="list-items__item-title">Full-stack Web Development</h3>
+                                    </div>
+                                    <div class="grid-list-items__text list-items__item-text">
+                                        <p>
+                                            I am adept at developing complete web applications from front-end to back-end. 
+                                            I have a proven ability to integrate various components for seamless user 
+                                            experiences, and am familiar with project management and collaborative development.
+                                        </p>
+                                    </div>
+                                </div> <!-- list-expertise__item -->
+                                <div class="grid-list-items__item list-items__item">
+                                    <div class="grid-list-items__title list-items__item-header">
+                                        <h3 class="list-items__item-title">User Experience (UX) Design</h3>
+                                    </div>
+                                    <div class="grid-list-items__text list-items__item-text">
+                                        <p>
+                                            I have a strong understanding of user experience principles and am 
+                                            skilled in creating intuitive and user-friendly designs. I have expertise 
+                                            in improving usability and accessibility.
+                                        </p>
+                                    </div>
+                                </div> <!-- list-expertise__item -->
+
+                            </div> <!-- grid-list-items -->
+                        </div> <!-- end s-expertise__content-main -->
+
+                        <div class="s-expertise__content-btn grid-section-split__bottom">
+                            <a href="projects.html" class="btn btn--stroke u-fullwidth">View All projects</a>
+                        </div> <!-- end s-about__content-btn -->
+
+                    </div> <!-- end grid-block-->
+                </div> <!-- end s-expertise__content -->
+
+            </section> <!-- end s-expertise -->
+
+            <!-- clients
+            ----------------------------------------------- -->
+            <section id="clients" class="s-clients">          
+
+                <div class="row s-clients__content-block width-sixteen-col">
+                    <div class="column xl-12 grid-block grid-section-split">
+                    
+                        <div class="section-header grid-section-split__header">
+                            <div class="text-pretitle">Experiences</div>                           
+                            <h2 class="text-display-title">
+                            I have had the privilege of working with these incredible brands.
+                            </h2>       
+                        </div> <!-- end section-header -->
+                    
+                        <div class="grid-section-split__primary">
+                            <p class="lead">
+                                I had an enriching experience as a <b>Full Stack Intern at Egg Bucket</b> (Kacklewalls Nutrition Pvt Ltd, Bangalore). During this time, I:
+                                <ul>
+                                    <li>Developed the front end of an admin dashboard for an egg delivery company targeting B2B outlets, outlet partners, and delivery partners, focusing on order details.</li>
+                                    <li>Utilized React, Vite, and Tailwind CSS to create a responsive and user-friendly interface, ensuring seamless management and tracking of business operations.</li>
+                                    <li>Made updates and enhancements to a fuel admin dashboard, improving its visual appeal and user experience.</li>
+                                </ul>
+                            </p>
+                              
+
+                            <p>
+                                I also got to be a Campus Ambassador for <b>Emertxe Information Tech</b>, running their 
+                                brand awareness campaigns at my college. That gave me a crash course in marketing 
+                                tactics and promotions. Another highlight was leading a team to build this Patient 
+                                Record Manager web app during a Front End internship at my university's research 
+                                center - we went all-in on perfecting the user experience.
+                                Between all these gigs, I've gained mad skills in web dev, open source collabs, 
+                                marketing, and UX design - a combo that'll make me a total asset for any tech 
+                                company.
+                            </p>
+                        </div> <!-- end grid-section-split__primary -->
+                    
+                    </div> <!-- end column -->
+                </div> <!-- end row -->
+
+                <!-- <div class="row s-clients__content-block width-sixteen-col">
+                    <div class="column xl-12">
+                    
+                        <div class="clients-list">                            
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/flash.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/rise.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/cactus.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/pinpoint.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/proline.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/vision.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="column clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/volume.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="column clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/hitech.svg" alt="">
+                                </a>
+                            </div><div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/terra.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="clients-list__item">
+                                <a href="#0">
+                                    <img src="images/clients/chain.svg" alt="">
+                                </a>
+                            </div>
+                        </div> 
+
+                    </div> 
+                </div> end row -->
+                                
+                <!-- <div class="row s-clients__content-block width-sixteen-col">
+                    <div class="column xl-12 testimonials">
+                    
+                        <div class="swiper-container testimonials__slider home-slider">
+
+                            <div class="swiper-wrapper">
+                                <div class="testimonials__slide swiper-slide">
+                                    <p>
+                                    Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. Voluptas tempore rem. 
+                                    Explicabo a quaerat sint autem dolore ducimus ut consequatur neque. Nisi dolores quaerat fuga rem nihil nostrum.
+                                    Laudantium quia consequatur molestias.
+                                    </p>
+                                    <div class="testimonials__author">
+                                        <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar">
+                                        <cite class="testimonials__cite">
+                                            <strong>John Rockefeller</strong>
+                                            <span>Standard Oil Co.</span>
+                                        </cite>
+                                    </div>
+                                </div>
+                                <div class="testimonials__slide swiper-slide">
+                                    <p>
+                                    Nisi dolores quaerat fuga rem nihil nostrum. Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. 
+                                    Voluptas tempore rem. Laudantium quia consequatur molestias.
+                                    Explicabo a quaerat sint autem dolore ducimus ut consequatur neque.
+                                    </p>
+                                    <div class="testimonials__author">
+                                        <img src="images/avatars/user-04.jpg" alt="Author image" class="testimonials__avatar">
+                                        <cite class="testimonials__cite">
+                                            <strong>Andrew Carnegie</strong>
+                                            <span>Carnegie Steel Co.</span>
+                                        </cite>
+                                    </div>
+                                </div>
+                                <div class="testimonials__slide swiper-slide">
+                                    <p>
+                                    Voluptas tempore rem. Molestiae incidunt consequatur quis ipsa autem nam sit enim magni.  
+                                    Explicabo a quaerat sint autem dolore ducimus ut consequatur neque. 
+                                    Nisi dolores quaerat fuga rem nihil nostrum. Laudantium quia consequatur molestias.
+                                    </p>
+                                    <div class="testimonials__author">
+                                        <img src="images/avatars/user-06.jpg" alt="Author image" class="testimonials__avatar">
+                                        <cite class="testimonials__cite">
+                                            <strong>Henry Ford</strong>
+                                            <span>Ford Motor Co.</span>
+                                        </cite>
+                                    </div>
+                                </div>
+                                <div class="testimonials__slide swiper-slide">
+                                    <p>
+                                    Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. Voluptas tempore rem. 
+                                    Explicabo a quaerat sint autem dolore ducimus ut consequatur neque. Nisi dolores quaerat fuga rem nihil nostrum.
+                                    Laudantium quia consequatur molestias.
+                                    </p>
+                                    <div class="testimonials__author">
+                                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
+                                        <cite class="testimonials__cite">
+                                            <strong>John Morgan</strong>
+                                            <span>JP Morgan & Co.</span>
+                                        </cite>
+                                    </div>
+                                </div> 
+                            </div>  
+
+                            <div class="swiper-pagination"></div>
+
+                        </div> end testimonials__slider                     -->
+                    
+                    </div> <!-- end column -->
+                </div> <!-- end row -->
+
+
+            </section> <!-- end s-clients -->            
+
+        </section> <!-- s-content-->
+
+        <!-- # cta
+        ================================================== -->
+        <section id="cta" class="s-cta">
+
+            <div class="row row-x-center text-center">
+                <div class="column xl-8 lg-12">
+
+                    <div class="s-cta__content">
+                        <h2 class="text-display-title">
+                        Get started with me today.
+                        </h2>
+                        <!-- <p class="lead">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis rem, esse doloribus sint eaque at debitis enim vitae minus expedita ratione dignissimos sit nostrum optio sequi. Ipsa at beatae quam.
+                        </p> -->
+                        <a href="contact.html" class="btn btn--primary">Let's Work Together</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </section> <!-- end s-cta -->
+
+        <!-- # journal
+        ================================================== -->
+        <!-- <section id="journal" class="s-journal">
+
+            <div class="row s-journal__content width-sixteen-col">
+                <div class="column xl-12 grid-block">
+
+                    <div class="grid-full section-header text-center">
+                        <div class="text-pretitle">Recent Articles</div>                           
+                        <h2 class="text-display-title">
+                        Latest articles from my blog.
+                        </h2>  
+                    </div>  
+
+                    <div class="grid-full s-journal__content-main grid-list-items">
+
+                        <div class="grid-list-items__item blog-card">
+                            <div class="blog-card__header">
+                                <div class="blog-card__cat-links">
+                                    <a href="https://www.dreamhost.com/r.cgi?287326">Sponsored</a>
+                                </div>
+                                <h3 class="blog-card__title"><a href="https://www.dreamhost.com/r.cgi?287326">Need Web Hosting for Your Websites?</a></h3>
+                            </div>
+                            <div class="blog-card__text">
+                                <p>
+                                Need hosting for your website? We would highly recommend <a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a>.
+                                Enjoy 100% in-house support, guaranteed performance and uptime, 1-click installs, and a super-intuitive control 
+                                panel to make managing your websites and projects easy. <a href="https://www.dreamhost.com/r.cgi?287326">Sign up</a> now to get started.
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="grid-list-items__item blog-card">
+                            <div class="blog-card__header">
+                                <div class="blog-card__cat-links">
+                                    <a href="blog.html">Productivity</a>
+                                </div>
+                                <h3 class="blog-card__title"><a href="single.html">5 Marketing Productivity Apps for Your Team</a></h3>
+                            </div>
+                            <div class="blog-card__text">
+                                <p>
+                                Rerum quam quos. Quibusdam quis autem voluptatibus earum vel ex error ea magni. Aut asperiores 
+                                sit mollitia. Rem neque et voluptatem eos quia sed eligendi et. Eaque velit eligendi ut 
+                                magnam. Cumque ducimus laborum doloribus facere maxime vel earum quidem enim suscipit.
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="grid-list-items__item blog-card">
+                            <div class="blog-card__header">
+                                <div class="blog-card__cat-links">
+                                    <a href="blog.html">SEO</a>
+                                </div>
+                                <h3 class="blog-card__title"><a href="single.html">7 SEO Factors to Consider for Better Website Ranking</a></h3>
+                            </div>
+                            <div class="blog-card__text">
+                                <p>
+                                Quibusdam quis autem voluptatibus earum vel ex error ea magni. Rerum quam quos. Aut asperiores 
+                                sit mollitia. Rem neque et voluptatem eos quia sed eligendi et. Eaque velit eligendi ut 
+                                magnam. Cumque ducimus laborum doloribus facere maxime vel earum quidem enim suscipit.
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="grid-list-items__item blog-card">
+                            <div class="blog-card__header">
+                                <div class="blog-card__cat-links">
+                                    <a href="blog.html">Productivity</a>
+                                </div>
+                                <h3 class="blog-card__title"><a href="single.html">5 Effective Web Design Principles</a></h3>
+                            </div>
+                            <div class="blog-card__text">
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum ullam et laborum aperiam. 
+                                Dignissimos quae voluptatibus ullam esse sapiente fugiat, rerum labore cupiditate obcaecati 
+                                dolore necessitatibus id magni rem officia dolor nam sit laudantium. Quo eaque eveniet quibusdam unde. 
+                                </p>
+                            </div>
+                        </div> 
+
+                    </div> 
+
+                </div> 
+            </div> 
+
+        </section> end s-journal -->
+
+
+        <!-- # footer 
+        ================================================== -->
+        <footer class="s-footer">
+            <div class="row s-footer__content">
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">                    
+                    <h3>About Sameer</h3>
+                    <p>
+                        Crafted with passion by a developer who's had the privilege of working with 
+                        innovative brands like EggBucket, where I honed my JavaScript skills building 
+                        e-commerce sites and games; Emertxe Information Technologies, where I led 
+                        impactful brand awareness campaigns; and CMR Institute of Technology's 
+                        Center of Excellence, where I enhanced user experiences with projects like 
+                        the Patient Record Manager. These collaborations fuel my commitment to 
+                        creating web solutions that are not just functional, but truly impactful. 
+                        Let's bring your digital vision to life! 🚀💻
+                    </p>               
+                </div>                
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+                    <h3>Site Links</h3>
+                    <ul class="link-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <!-- <li><a href="blog.html">Journal</a></li> -->
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <!-- <li><a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a></li> -->
+                    </ul>
+                </div>
+                <!-- <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+                    <h3>Newsletter</h3>
+
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ratione dignissimos.
+                    </p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="mc-form">
+                            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center" placeholder="Your Email Address" title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+                            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth">
+                            <div class="mc-status"></div>
+                        </form>
+                    </div>
+                </div> -->
+            </div>    
+            
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <!-- <ul class="s-footer__social social-list">
+                        <li>
+                            <a href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z"></path></svg>
+                                <span class="u-screen-reader-text">Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
+                                <span class="u-screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
+                                <span class="u-screen-reader-text">Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20.66 6.98a9.932 9.932 0 0 0-3.641-3.64C15.486 2.447 13.813 2 12 2s-3.486.447-5.02 1.34c-1.533.893-2.747 2.107-3.64 3.64S2 10.187 2 12s.446 3.487 1.34 5.02a9.924 9.924 0 0 0 3.641 3.64C8.514 21.553 10.187 22 12 22s3.486-.447 5.02-1.34a9.932 9.932 0 0 0 3.641-3.64C21.554 15.487 22 13.813 22 12s-.446-3.487-1.34-5.02zM12 3.66c2 0 3.772.64 5.32 1.919-.92 1.174-2.286 2.14-4.1 2.9-1.002-1.813-2.088-3.327-3.261-4.54A7.715 7.715 0 0 1 12 3.66zM5.51 6.8a8.116 8.116 0 0 1 2.711-2.22c1.212 1.201 2.325 2.7 3.34 4.5-2 .6-4.114.9-6.341.9-.573 0-1.006-.013-1.3-.04A8.549 8.549 0 0 1 5.51 6.8zM3.66 12c0-.054.003-.12.01-.2.007-.08.01-.146.01-.2.254.014.641.02 1.161.02 2.666 0 5.146-.367 7.439-1.1.187.373.381.793.58 1.26-1.32.293-2.674 1.006-4.061 2.14S6.4 16.247 5.76 17.5c-1.4-1.587-2.1-3.42-2.1-5.5zM12 20.34c-1.894 0-3.594-.587-5.101-1.759.601-1.187 1.524-2.322 2.771-3.401 1.246-1.08 2.483-1.753 3.71-2.02a29.441 29.441 0 0 1 1.56 6.62 8.166 8.166 0 0 1-2.94.56zm7.08-3.96a8.351 8.351 0 0 1-2.58 2.621c-.24-2.08-.7-4.107-1.379-6.081.932-.066 1.765-.1 2.5-.1.799 0 1.686.034 2.659.1a8.098 8.098 0 0 1-1.2 3.46zm-1.24-5c-1.16 0-2.233.047-3.22.14a27.053 27.053 0 0 0-.68-1.62c2.066-.906 3.532-2.006 4.399-3.3 1.2 1.414 1.854 3.027 1.96 4.84-.812-.04-1.632-.06-2.459-.06z"></path></svg>
+                                <span class="u-screen-reader-text">Dribbble</span>
+                            </a>
+                        </li>
+                    </ul>  -->
+                </div>
+                <!-- <div class="column xl-6 lg-12">
+                    <p class="ss-copyright">
+                        <span>© Copyright Sameer 2022</span> 
+                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a> Distribution By <a href="https://themewagon.com">ThemeWagon</a></span>
+                    </p>
+                </div> -->
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">&lt;!--!  Atomicons Free 1.00 by @atisalab License - https://atomicons.com/license/ (Icons: CC BY 4.0) Copyright 2021 Atomicons --&gt;<polyline points="17 11 12 6 7 11"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
+                    </a>
+                </div> <!-- end ss-go-top -->
+            </div>
+            
+        </footer> <!-- end s-footer -->
+
+    </div> <!-- end page-wrap -->
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script>const socialLinks = {
+        email: 'sameerchandra12@gmail.com',
+        linkedin: 'https://www.linkedin.com/in/sameer-singh-493b271b8/',
+        github: 'Sameersingh29',
+        instagram: 'the__protagonist_'
+    };
+
+    // Update the links
+    document.getElementById('email-link').href = `mailto:${socialLinks.email}`;
+    document.getElementById('linkedin-link').href = socialLinks.linkedin;
+    document.getElementById('github-link').href = `https://github.com/${socialLinks.github}`;
+    document.getElementById('instagram-link').href = `https://www.instagram.com/${socialLinks.instagram}`;</script>
+
+</body>
+</html>
